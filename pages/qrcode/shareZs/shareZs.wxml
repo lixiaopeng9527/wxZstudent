@@ -1,0 +1,17 @@
+<!--pages/qrcode/shareZs/shareZs.wxml-->
+<view class='base-layer'>
+
+
+    <view class='base-card share-code-inner'>
+        
+        <image catchtap='_onPreviewImg' lazy-load='true' class='share-img' src='{{shareImg}}'></image>
+    </view>
+    <view catchtap='_onSaveImg' class='share-code-btn'>
+               保存图片   
+        </view>
+
+
+  
+
+
+</view> 

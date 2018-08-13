@@ -1,0 +1,77 @@
+<view class='visitor-layer base-layer'>
+
+  <view class='visitor-header'>
+       <view    class='visitor-header-item {{selectTab == "today" ? "visitor-header-active" : ""}}' catchtap='onChangeTab' data-type='today'>
+            <text class='visitor-header-num'>{{staticsData ? staticsData.follow.todayCount : ''}}</text>
+            <text class='visitor-header-name'>今日新增</text>
+        </view> 
+
+        <view class='v-line'></view> 
+        <view class='visitor-header-item  {{selectTab == "total" ? "visitor-header-active" : ""}} ' catchtap='onChangeTab' data-type='total'>
+            <text class='visitor-header-num'>{{staticsData ? staticsData.follow.totalCounts : ''}}</text>
+            <text class='visitor-header-name'>累计条数</text>
+        </view> 
+  </view>
+
+  <view class='lookPark-list'>
+
+      <view wx:key="id"    wx:for="{{childList}}" class='base-card lookPark-item' catchtap='_onOpenItemCard' data-index="{{index}}">
+
+           <view class='lookPark-item-time'>{{item.filterAdviceTime}}</view> 
+
+          <view class='lookPark-item-relation'>
+              <view class='lookPark-item-icon-wrap lookPark-item-icon-child-bg'>
+                   <text class='iconfont icon-child-head custom-icon-head'></text>
+              </view>             
+              <view>
+                  <text class='lookPark-item-name'>幼儿信息</text>
+                  <view class='flex-row flex-row-center lookPark-item-desc'>
+                       <text class=''>{{item.childName}}   {{item.filterChildSex }}  {{item.filterChildBirth}}</text>                     
+                  </view>
+              </view>             
+          </view> 
+
+           <view  class='lookPark-item-relation' >
+              <view class='lookPark-item-icon-wrap lookPark-item-icon-parent-bg'>
+                   <text class='iconfont icon-parent-head custom-icon-head'></text>
+              </view>             
+              <view>
+                  <text class='lookPark-item-name'>家长信息</text>
+                  <view class='flex-row flex-row-center lookPark-item-desc'>
+                       <text class=''>{{item.userName}}  {{item.relation ? "("+item.relation+")" : ""}}    {{item.phoneNum}}</text>                     
+                  </view>
+              </view>             
+          </view>       
+          
+ 
+          <view class='ovh lookPark-more-wrap' >
+                <view  style='height : 0' animation="{{item.animation}}" class='lookPark-more-content' >
+                      <text>家庭住址: {{item.address || '未填写'}}</text>
+                      <text>年级意向: {{item.filterPurposeGrade || '未填写'}}</text>
+                      <text>推荐老师: {{item.rcomName}}</text>
+                        <text>备注: {{item.attach || '未填写'}}</text>          
+                </view>
+          </view>
+
+
+
+            <view class='lookPark-item-bottom'>
+                <text  >查看更多信息</text>
+                <text  data-index="{{index}}" catchtap='_onCallPhone' class='lookPark-item-concat'>拨打电话</text>
+            </view>
+            
+
+            
+
+      </view>  
+
+
+     
+  </view> 
+
+
+
+</view>
+
+
+       

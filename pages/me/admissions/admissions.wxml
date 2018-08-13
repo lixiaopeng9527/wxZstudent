@@ -1,0 +1,259 @@
+<view class='base-layer'>
+  <form bindsubmit="_onFormSubmit">
+    <view class="flex-col mpb">
+
+      <view wx:if="{{!recruitmentIcon}}" class='algin-center flex-col'>
+        <image src='{{addPicUrl}}' class='admissions-pic' catchtap='__chooseHeaderPic'></image>
+        <text class='admissions-text'>为您的幼儿园选个封面吧</text>
+      </view>
+
+      <view wx:if="{{recruitmentIcon}}" class="base-container flex">
+        <image src='{{recruitmentIcon}}' mode='aspectFill' class="bg-pic" catchtap='__chooseHeaderPic'></image>
+      </view>
+
+      <view class='base-container flex-col'>
+        <view class='flex-col algin-center'>
+          <image src='{{kindergartenPic}}' class='introduce-icon'></image>
+          <text class='introduce'>幼儿园性质(单选)</text>
+        </view>
+        <view class="flex-row pd48">
+          <view wx:for="{{schoolTypeList}}" wx:key='{{index}}' class=" flex-1 mr32 {{item.active? ' active' : ' '}}" catchtap='_chooseRadio' data-id='{{item.value}}'>
+            <text class="text-content">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class='base-container flex-col '>
+        <view class='algin-center flex-col'>
+          <image src='{{scope}}' class='introduce-icon'></image>
+          <text class='introduce'>招生范围</text>
+        </view>
+        <view class="flex-col">
+          <view class='flex-row class_b'>
+            <view class='text-content pd20 header nbb nbr'>年级</view>
+            <view class='text-content pd20 header nbb nbr'>建议年龄</view>
+            <view class='text-content pd20 header nbb'>招生人数</view>
+          </view>
+
+          <!-- <view wx:if='{{item.statics <= 2}}' class='flex-row class_b' wx:for='{{schoolRange}}' wx:key='{{index}}'>
+            <view class='text-content pd15 nbb nbr' >{{item.grade}}</view>
+            <view class='text-content pd15 nbb nbr'>{{item.age}}</view>
+            <view class='text-content pd15 nbb'>
+              <input type="number" maxlength="10" placeholder-class='base-placeholder' placeholder="点击输入" bindinput="_bindKeyInput" data-statics='{{item.statics}}' value="{{item.num}}"></input>
+            </view>
+          </view> -->
+
+          <view  class='flex-row class_b' wx:for='{{schoolRange}}' wx:key='{{index}}'>
+            <view class='text-content pd15 nbb nbr'>
+              <input type="text" maxlength="10" placeholder-class='base-placeholder' placeholder="点击输入" bindinput="_bindKeyInput" data-statics='{{item.statics}}' value='{{item.grade}}' data-name='grade'></input>
+            </view>
+            <view class='text-content pd15 nbb nbr'>
+              <input type="text" maxlength="10" placeholder-class='base-placeholder' 
+              value ='{{item.age}}' placeholder="点击输入" bindinput="_bindKeyInput" data-statics='{{item.statics}}' data-name='age'></input>
+            </view>
+            <view class='text-content pd15 nbb'>
+              <input type="number" maxlength="10" 
+              value='{{item.num}}' placeholder-class='base-placeholder' placeholder="点击输入" bindinput="_bindKeyInput" data-statics='{{item.statics}}' data-name='num'></input>
+            </view>
+          </view>
+      
+          <view class='flex-row class_b'>
+            <view class='text-content pd20 self_color nbr' catchtap='_selfAdd'>+自定义</view>
+            <view class='text-content pd20 nbr'></view>
+            <view class='text-content pd20'></view>
+          </view>
+          
+        
+
+
+            <view class='flex-column bt'>
+
+              <text class='text-content mt44'>这里建议添加小朋友图片（最多6张）</text>
+              
+            </view>
+
+
+            <view class="flex-row-wrap m48">
+              <view class='flex-row flex-item-1' wx:for='{{studentActiveIcon}}' wx:key="{{index}}">      
+                <view class='del-con'>
+                  <image src='{{deleteP}}'  catchtap='_deleteChild' data-inx="{{index}}" class='delete_pic'></image>
+                <image src='{{item.picture}}' 
+                catchtap='_onShowCodeImg'
+                data-curr='{{item.picture}}' 
+                data-urls='{{studentActiveIcon}}'
+                mode='aspectFill' class="itemImg" />
+                </view>
+              </view>
+              <view class='flex-row flex-item-1'>
+                <image src="{{child}}" class='child' wx:if="{{studentActiveIcon.length <=5}}"catchtap='__chooseChildPic'></image>
+              </view>
+            </view>
+        </view>
+      </view>
+      <view class="base-container flex-col">
+          <view class="algin-center flex-col">
+            <image src="{{features}}" class='introduce-icon'></image>
+            <text class="introduce">园所特色(最多5项)</text>
+          </view>
+          <view class="flex-row form-checkbox">
+            <view wx:for="{{schoolFeature}}" class="flex-row3" wx:key='{{index}}'>
+              <view class="inner {{item.active?'active':''}}" catchtap="_chooseCheckBox" data-value='{{item.value}}'>
+                <text class="test01">{{item.name}}</text>
+              </view>
+            </view>
+            <view class='flex-row3'>
+              <view class="inner dotted" catchtap="_addItem">
+                <text class='test01 self_color'>+自定义</text>
+              </view>
+            </view>
+          </view>
+
+          <easy-modal id="userEasyModal" title="填写园所特色" backdrop="{{true}}" animated="{{true}}" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEventUpdateUser">
+            <view class='modal-content'>
+              <view class='time-layer'>
+                <view class="time-group">
+                  <input class='base-input-sm base-input' placeholder='填写您的园所特色' bindinput='_onChangeUserName' focus="{{isFocusUserName}}" value="{{tempUserName}}" maxlength='8' type='text' />
+                </view>
+              </view>
+            </view>
+
+          </easy-modal>
+          <view class='flex-column bt'>
+            <text class='text-content mt44'>这里建议加教学活动图片（最多6张）</text>
+          </view>
+          
+          <view class="flex-row-wrap m48">
+            <view class='flex-row flex-item-1' wx:for='{{teachIcon}}' wx:key="{{index}}">
+            <view class='del-con'>
+                <image src='{{deleteP}}'  catchtap='_deleteTeacher' data-inx="{{index}}" class='delete_pic'></image>
+                <image src='{{item.picture}}'
+                  catchtap='_onShowCodeImg'
+                  data-curr='{{item.picture}}' 
+                  data-urls='{{teachIcon}}'
+                 mode='aspectFill' class="itemImg" />
+            </view>
+            </view>
+            <view class='flex-row flex-item-1'>
+            <image src="{{child}}" class='child' wx:if="{{teachIcon.length <=5}}"catchtap='_chooseTeacherPic'></image>
+            </view>
+          </view>
+        </view>
+      <view class="base-container flex-col">
+        <view class="algin-center flex-col">
+           <image src="{{food}}" class='introduce-icon'></image> 
+          <text class="introduce">营养健康</text>
+        </view>
+        <view class="flex-row diet_pd">
+          <view wx:for="{{nutritionHelathy}}" wx:key="{{index}}" class="flex-1 mr32 {{item.active?'active':''}}" catchtap='_chooseHealthy' data-value="{{item.value}}">
+            <text class="text-content">{{item.name}}</text>
+          </view>
+        </view>
+        
+        <view class='flex-column bt'>
+            <text class='text-content mt44'>这里建议添加食谱图片（最多6张）</text>
+          </view>
+        
+        <view class="flex-row-wrap m48">
+            <view class='flex-row flex-item-1' wx:for='{{recipeIcon}}' wx:key="{{index}}">
+            <view class='del-con'>
+             <image src='{{deleteP}}' catchtap='_deleteDiet' data-inx="{{index}}" class='delete_pic'></image>
+            <image src='{{item.picture}}' 
+            catchtap='_onShowCodeImg'
+            data-curr='{{item.picture}}' 
+            data-urls='{{recipeIcon}}' mode='aspectFill' class="itemImg"  />
+            </view>
+            </view>
+            <view class='flex-row flex-item-1'>
+          <image src="{{child}}" wx:if="{{recipeIcon.length <=5}}" class='child' catchtap='_chooseHealthyPic'></image>
+          </view>
+          </view>
+          
+      </view>
+      <view class="base-container flex-col">
+        <view class="algin-center flex-col">
+          <image src="{{kindergarten}}" class='introduce-icon'></image>
+          <text class="introduce">幼儿园介绍</text>
+        </view>
+        <view class="item-message">
+          <textarea placeholder="请输入园所介绍" class="text-bk" placeholder-class="form-input-item placeholder_color" name="schoolIntroduction" maxlength='200' value="{{schoolIntroduction}}"></textarea>
+        </view>
+      
+        <view class='flex-column bt' >
+            <text class='text-content mt44'>把剩下好看的图片都发上来吧（最多6张）</text>
+        </view>
+       
+         <view class="flex-row-wrap m48">
+            <view class='flex-row flex-item-1' wx:for='{{schoolOtherIcon}}' wx:key="{{index}}">
+               <view class='del-con'>
+             <image src='{{deleteP}}' catchtap='_deleteOther' data-inx="{{index}}" class='delete_pic'></image>
+            <image src='{{item.picture}}' 
+            catchtap='_onShowCodeImg'
+            data-curr='{{item.picture}}' 
+            data-urls='{{schoolOtherIcon}}' mode='aspectFill' class="itemImg"  />
+            </view>
+            </view>
+            <view class='flex-row flex-item-1' wx:if="{{schoolOtherIcon.length <=5}}">
+              <image src="{{child}}" class='child' catchtap='_chooseIntroducePicPic'></image>
+            </view>
+          </view> 
+
+      <!-- <view wx:if="{{introducePic[0]}}" class="pd40">
+        <image src='{{introducePic[0]}}' mode='aspectFill' class="bg-pic" catchtap='_chooseIntroducePicPic'></image>
+      </view>   -->
+      </view>
+
+      <view class="base-container flex-col">
+        <view class="algin-center flex-col">
+          <image src='{{imsage}}' class='introduce-icon'></image>
+          <text class='introduce'>招生信息</text>
+        </view>
+        <view class='flex-col'>
+          <view class='flex-row form-input-style'>
+            <label class='form-item-label'>
+              <text class='star mr5'>*</text>招生标题</label>
+            <view class='flex-row-1'>
+              <input class='b_input' type='text' maxlength="12" placeholder="给本次招生起一个响亮的标题吧！" placeholder-class="form-input-item" name="schoolIntro" value='{{schoolIntro}}'></input>
+            </view>
+          </view>
+
+
+          <view class='flex-row form-input-style'>
+            <label class='form-item-label'>
+              <text class='star mr5'>*</text>报名热线</label>
+            <view class='flex-row-1'>
+              <input class='b_input' type='text' maxlength="15" placeholder="这里填写报名联系方式" placeholder-class="form-input-item" name="phoneNum" value="{{phoneNum}}"></input>
+            </view>
+          </view>
+
+          <view class='flex-row form-input-style form-input-item-time'>
+            <label class='form-item-label'>
+              <text class='star mr5'>*</text>招生开始时间</label>
+            <view class='flex-row-1'>
+              <picker mode="date" value="recruitmentStartDate" start="2017-09-01" end="2055-09-01" bindchange="bindDateChange" class='flex-row-1'>
+                 <view class='test01 flex-row-1'>
+                    <text wx:if="{{!recruitmentStartDate}}" class='test01'>请选择招生开始时间</text>{{recruitmentStartDate}}</view> 
+              </picker>
+            </view>
+          </view>
+          <view class='flex-row form-input-style mb48 form-input-item-time'>
+            <label class='form-item-label'>
+              <text class='star mr5'>*</text>招生结束时间</label>
+            <view class='flex-row-1'>
+              <picker mode="date" value="recruitmentEndDate" start="2017-09-01" end="2055-09-01" bindchange="_bindEndDateChange" class='flex-row-1'>
+                 <view class='test01 flex-row-1'>
+                    <text wx:if="{{!recruitmentEndDate}}" class='test01'>请选择招生结束时间</text>{{recruitmentEndDate}}</view> 
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='submit-div'>
+        <button wx:if='{{isEditorZS}}' disabled="{{isFormDisabled}}" class='base-btn btn-seq btn-seq-primary ' form-type="submit">去招生
+        </button>
+        <button catchtap='_backtoBack' wx:if="{{!isEditorZS}}"  class='base-btn btn-seq btn-seq-primary'>去分享
+        </button>
+      </view>
+    </view>
+
+</form>
+</view>

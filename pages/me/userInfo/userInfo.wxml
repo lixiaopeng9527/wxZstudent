@@ -1,0 +1,70 @@
+<wxs module="permission" src="../../../common/permission.wxs"></wxs>
+<view class='base-layer'>
+  <view class='base-card'>  
+
+      <view class='flex-col userinfo-header'>        
+         <image   bindtap='_onShowUserHead' class="userinfo-avatar"  src="{{avatarUrl}}"></image>
+         <text class='userinfo-name'>{{userName}}</text>
+        
+         <text class='userinfo-role'>{{currentSchool && currentSchool.isMaster  == 3 ? '超级管理员' : currentSchool.isMaster  == 2 ? "考勤管理员" : "普通职工"}}</text>         
+      </view>
+      <view class='userinfo-list'>
+            
+
+        <view class='userinfo-item' > 
+            <text class='iconfont icon-house'></text>
+            <text class='userinfo-item-label'>学校名称</text>
+                     
+              <view class='flex-1 userinfo-item-content'>
+                  <picker class='userinfo-item-picker' bindchange="_onChangeSchool" value="{{index}}" range-key="schoolName"  range="{{schoolList}}">
+             <view class='flex-1'>{{currentSchool.schoolName}}</view>                 
+          </picker>
+              </view> 
+                <text class='iconfont icon-arrow-right custom-arrow-right'></text>    
+        </view>
+            <!-- <view class='userinfo-item' wx:if='{{isShowZS}}' catchtap='onForwardPage' data-type='admissions'>
+              <text class='iconfont icon-broadcast'></text>
+              <text class='userinfo-item-label'>招生宣传</text>
+              <image src='/imgs/hot.png' class='zs-img'></image>
+              <text class='userinfo-item-content'></text>
+              <text class='iconfont icon-arrow-right custom-arrow-right'></text>
+            </view> -->
+         <view class='userinfo-item'  catchtap='onForwardPage'  data-type='updateSchool' wx:if="{{permission.hasRight('attendance.updateSchool',currentSchool.isMaster)}}"> 
+            <text class='iconfont icon-location'></text>           
+            <text class='userinfo-item-label'>园所地址</text>
+            <view class='userinfo-item-content text-ellipsis'>
+              <text class='text-ellipsis'>{{currentSchool.qrcodeAddress}}</text>  
+            </view>
+            
+                <text class='iconfont icon-arrow-right custom-arrow-right'></text>
+        </view>
+         <view class='userinfo-item'  catchtap='onForwardPage' data-type="setting"> 
+            <text class='iconfont icon-power'></text>           
+            <text class='userinfo-item-label'>权限设置</text>
+            <text class='userinfo-item-content'></text>   
+                <text class='iconfont icon-arrow-right custom-arrow-right'></text>
+        </view>
+
+        <button  open-type="contact" class='custom-service' >            
+            <view class='userinfo-item'>
+                <text class='iconfont icon-custom'></text>           
+                <text class='userinfo-item-label'>咨询客服</text>
+                <text class='userinfo-item-content'></text>   
+                <text class='iconfont icon-arrow-right custom-arrow-right'></text>
+            </view>           
+        </button> 
+        <button  open-type="share" class='custom-service' >            
+            <view class='userinfo-item'>
+                <text class='iconfont icon-share'></text>            
+                <text class='userinfo-item-label'>邀请招生老师</text>
+                <text class='userinfo-item-content'></text>   
+                <text class='iconfont icon-arrow-right custom-arrow-right'></text>
+            </view>           
+        </button>
+      </view>
+          
+  </view>
+</view>
+
+
+

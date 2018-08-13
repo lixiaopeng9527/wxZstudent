@@ -1,0 +1,10 @@
+
+<view class="st-list-layer base-layer">
+ <view data-type="lookPark"  class='st-item base-card' catchtap='onForwardPage'>
+    <view class='st-item-left flex-col'>       
+        <text class='st-item-bold-ky'>{{staticsData ? staticsData.follow.todayCount : ''}}<text class='st-item-people'>人</text></text>
+        <text class='st-item-desc'>今日新增看园信息</text>
+    </view>
+    <view class='iconfont icon-castle-base st-item-icon'></view>
+  </view>
+</view>

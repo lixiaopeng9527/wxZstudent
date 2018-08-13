@@ -1,0 +1,293 @@
+<view class='base-layer'>
+  <view class='flex-col header'>
+    <view class='school-message flex-col pr algin-item'>
+      <image src="/imgs/bubbles.png" class='bubbles_png pa'></image>
+      <image class='school-title' src='/imgs/title.png'></image>
+      <view class='flex-col flex-center admissions-styles'>
+        <view>
+          <text class='school-name'>{{pageFormData.schoolName?pageFormData.schoolName:''}}</text>
+        </view>
+        <view>
+          <text class="school-admissions">{{pageFormData.schoolIntro?pageFormData.schoolIntro:''}}</text>
+        </view>
+      </view>
+
+      <view class='flex-col flex-center admissions-style' wx:if="{{pageFormData.recruitmentStartDate || pageFormData.phoneNum}}">
+      <view>
+      <text class='font-color-white special-size-phone'>招生热线:{{pageFormData.phoneNum}}</text>
+      </view>
+      <view>
+        <text class='font-color-white special-size-time'>报名时间:{{pageFormData.recruitmentStartDate}}至{{pageFormData.recruitmentEndDate}}</text>
+      </view>  
+      </view>
+      <view class='flex-col flex-center school-address'>
+        <view class='address_w'>
+          <text wx:if="{{pageFormData.gardenAdds}}"class='font-title-color special-size-address'>地址:{{pageFormData.gardenAdds?pageFormData.gardenAdds:''}}
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='flex-col'>
+    <view class='child-icon flex-center'>
+      <image src='/imgs/child.png' class='img-style'></image>
+    </view>
+
+    <view class='show-pic pr'>
+      <image src="/imgs/flower.png" class='pa flower_img_left'></image>
+      <image src="/imgs/flower-1.png" class='pa flower_img_right'></image>
+      <view class='show-pic-inner'>
+        <image 
+        catchtap='_onShowOneCodeImg' 
+        data-index="{{pageFormData.recruitmentIcon}}" 
+        src='{{pageFormData.recruitmentIcon}}' 
+        mode='aspectFill' 
+        class="img_width"></image>
+      </view>
+
+    </view>
+  </view>
+
+  <view class='flex-col mrt pr show-pic'>
+    <view class='show-pic-inner'>
+      <image src="/imgs/flower.png" class='pa flower_img_left'></image>
+      <image src="/imgs/flower-1.png" class='pa flower_img_right'></image>
+      <view class='flex-col'>
+        <view class='flex-col flex-center'>
+          <text class='scope-title'>招生范围</text>
+          <image class='icon-img' src='/imgs/icon.png'></image>
+        </view>
+
+        <view class='table-style'>
+          <view class='flex-col'>
+            <view class='flex-row'>
+              <view class='text-content pd20 header_color con_radius-left'>年级</view>
+              <view class='text-content pd20 header_color'>建议年龄</view>
+              <view class='text-content pd20 header_color con_radius-right'>招生人数</view>
+            </view>
+          </view>
+          <block class="" wx:for="{{pageFormData.schoolRange}}" wx:key='{{index}}'>
+            <view class='flex-row {{ index%2 == 0?" color_light":" color-dark"}}'>
+              <view class='text-content pd20'>{{item.grade}}</view>
+              <view class='text-content pd20'>{{item.age}}</view>
+              <view class='text-content pd20 num_color'>{{item.num}}</view>
+            </view>
+          </block>
+        </view>
+
+        <view class='flex-row-wrap border' wx:if='{{pageFormData.studentActiveIcon.length}}'>
+          <view class='flex-item-half' wx:if="{{pageFormData.studentActiveIcon.length>1}}" wx:for="{{pageFormData.studentActiveIcon}}" wx:key="{{index}}">
+            <image src="{{item.picture}}" catchtap='_onShowCodeImg' data-index="{{index}}" data-urls='{{pageFormData.studentActiveIcon}}' class='img-item child-img' mode='aspectFill'></image>
+          </view>
+
+          <view class='flex_width' wx:if="{{pageFormData.studentActiveIcon.length == 1}}">
+            <image src="{{pageFormData.studentActiveIcon[0].picture}}" catchtap='_onShowCodeImg' data-index="{{index}}" data-urls='{{pageFormData.studentActiveIcon}}' class='img-item child-img-full' mode='aspectFill'>
+            </image>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+
+  <view class='pr show-pic flex-col mrt'>
+    <view class='show-pic-inner'>
+      <image src="/imgs/flower.png" class='pa flower_img_left'></image>
+      <image src="/imgs/flower-1.png" class='pa flower_img_right'></image>
+      <view class='flex-col flex-center'>
+        <text class='scope-title'>园所特色</text>
+        <image class='icon-img' src='/imgs/icon.png'></image>
+      </view>
+
+      <view class='flex-row-wrap'>
+        <view wx:for="{{pageFormData.schoolFeature}}" wx:key='{{index}}' class='flwx-row checkShow'>
+          <view class='check-item'>
+            <text class='check-item-name'>{{item}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='flex-row-wrap border' wx:if="{{pageFormData.teachIcon.length}}">
+        <view class='flex-item-half' wx:if="{{pageFormData.teachIcon.length>1}}" wx:for="{{pageFormData.teachIcon}}" wx:key="{{index}}">
+          <image src="{{item.picture}}" catchtap='_onShowCodeImg' data-index="{{index}}" data-urls='{{pageFormData.teachIcon}}' class='img-item child-img' mode='aspectFill'></image>
+        </view>
+        <view class='flex_width' wx:if="{{pageFormData.teachIcon.length == 1}}">
+          <image src="{{pageFormData.teachIcon[0].picture}}" catchtap='_onShowCodeImg' data-index="{{index}}" data-urls='{{pageFormData.teachIcon}}' class='img-item child-img-full' mode='aspectFill'>
+          </image>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='pr show-pic flex-col mrt'>
+    <view class='show-pic-inner'>
+      <image src="/imgs/flower.png" class='pa flower_img_left'></image>
+      <image src="/imgs/flower-1.png" class='pa flower_img_right'></image>
+      <view class='flex-col flex-center'>
+        <text class='scope-title'>营养健康</text>
+        <image class='icon-img' src='/imgs/icon.png'></image>
+      </view>
+      <view class='flex-row healthy-bd'>
+        <view class='flex-col flex-center flex1' wx:for="{{pageFormData.nutritionHelathy}}" wx:key="{{index}}">
+          <image src='{{item == "科学食谱"?fruit:item =="晨、午检"?nurse:measurement}}' class='healthy-item-pic'></image>
+          <image src='{{dividingLine}}' class='healthy-item-line'></image>
+          <view class='healthy-item-text'>
+            <text class='font-color-white font-size-base'>{{item}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='flex-row-wrap border' wx:if="{{pageFormData.recipeIcon.length}}">
+        <view class='flex-item-half' wx:if="{{pageFormData.recipeIcon.length>1}}" wx:for="{{pageFormData.recipeIcon}}" wx:key="{{index}}">
+          <image src="{{item.picture}}" catchtap='_onShowCodeImg' data-index="{{index}}" data-urls='{{pageFormData.recipeIcon}}' class='img-item child-img' mode='aspectFill'></image>
+        </view>
+
+        <view class='flex_width' wx:if="{{pageFormData.recipeIcon.length == 1}}">
+          <image src="{{pageFormData.recipeIcon[0].picture}}" catchtap='_onShowCodeImg' data-index="{{index}}" data-urls='{{pageFormData.recipeIcon}}' class='img-item child-img-full' mode='aspectFill'>
+          </image>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='pr show-pic flex-col mrt'>
+    <view class='show-pic-inner'>
+      <image src="/imgs/flower.png" class='pa flower_img_left'></image>
+      <image src="/imgs/flower-1.png" class='pa flower_img_right'></image>
+      <view class='flex-col flex-center'>
+        <text class='scope-title'>幼儿园介绍</text>
+        <image class='icon-img' src='/imgs/icon.png'></image>
+      </view>
+      <view class='flex-col'>
+        <view class='introduce'>
+          <text class='font-size-base font-color-gray'>{{pageFormData.schoolIntroduction}}</text>
+        </view>
+
+        <view class='flex-row-wrap border' wx:if="{{pageFormData.schoolOtherIcon.length}}">
+          <view class='flex-item-half' wx:if="{{pageFormData.schoolOtherIcon.length>1}}" wx:for="{{pageFormData.schoolOtherIcon}}" wx:key="{{index}}">
+            <image src="{{item.picture}}" catchtap='_onShowCodeImg' data-index="{{index}}" data-urls='{{pageFormData.schoolOtherIcon}}' class='img-item child-img' mode='aspectFill'></image>
+          </view>
+          <view class='flex_width' wx:if="{{pageFormData.schoolOtherIcon.length == 1}}">
+            <image src="{{pageFormData.schoolOtherIcon[0].picture}}" catchtap='_onShowCodeImg' data-index="{{index}}" data-urls='{{pageFormData.schoolOtherIcon}}' class='img-item child-img-full' mode='aspectFill'>
+            </image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='flex-col mrt pr family_z'>
+    <image src='/imgs/family_house.png' class='family_house'></image>
+  </view>
+  <view class='pr family_house_pic flex-col' >
+    <view class='show-pic-inner' wx:if='{{!isSubmit}}'>
+      <form bindsubmit="_onFormSubmit">
+
+        <view class='flex-col'>
+          <view class='flex-row dingzhi'>
+            <label class='form-item-label flex'>
+              <text class='star mr5'>*</text>宝贝姓名 |
+            </label>
+            <view class='flex-1'>
+              <input placeholder-class='base-placeholder-sm special-size' class='commom-input' type="text" maxlength="15" bindinput="_onChangeChildName" placeholder="请输入宝贝姓名" />
+            </view>
+          </view>
+
+          <view class='flex-row dingzhi' catchtap='_onSelectSex'>
+            <label class='form-item-label '>
+              <text class='star mr5'>*</text>宝贝性别 |
+            </label>
+            <text class='{{childSex ? "common-font" : "save-look-park-placeholder special-size"}}'>{{childSex ? childSex : '宝贝性别'}}</text>
+            <text class='flex-1 text-right save-look-park-select special-size'>请选择</text>
+            <text class='iconfont icon-arrow-right custom-arrow-right'></text>
+          </view>
+
+          <view class='flex-row dingzhi'>
+            <label class='form-item-label'>
+              <text class='star mr5'>*</text>宝贝生日 |
+            </label>
+            <text class='{{childBirth ? "common-font" : "save-look-park-placeholder special-size"}}'>{{childBirth ? childBirth : '宝贝生日'}}</text>
+            <picker class='flex-1 text-right' mode="date" value="{{childBirth}}" bindchange="_onBirthDateChange">
+              <view class="save-look-park-select special-size">请选择</view>
+            </picker>
+
+            <text class='iconfont icon-arrow-right custom-arrow-right'></text>
+
+          </view>
+
+          <view class='flex-row dingzhi'>
+            <label class='form-item-label'>
+              <text class='star mr5'>*</text>家长关系 |
+            </label>
+            <text class='{{relation ? "common-font" : "save-look-park-placeholder special-size"}}'>{{relation ? relation : '家长关系'}}</text>
+
+            <picker class='flex-1 text-right' value="{{index}}" range="{{relationList}}" mode="selector" bindchange="_onRelationChange">
+              <view class="save-look-park-select special-size">请选择</view>
+            </picker>
+
+            <text class='iconfont icon-arrow-right custom-arrow-right'></text>
+
+          </view>
+
+          <view class='flex-row dingzhi'>
+            <label class='form-item-label flex'>
+              <text class='star mr5'>*</text>家长姓名 |
+            </label>
+            <view class='flex-1'>
+              <input maxlength="15" placeholder-class='base-placeholder-sm special-size' class='commom-input' type="text" bindinput="_onChangeParentName" placeholder="请输入家长姓名" />
+            </view>
+
+          </view>
+
+          <view class='flex-row dingzhi'>
+            <label class='form-item-label flex'>
+              <text class='star mr5'>*</text>家长电话 |
+            </label>
+            <view class='flex-1'>
+              <input placeholder-class='base-placeholder-sm special-size' class='commom-input' type="number" bindinput="_onChangeParentPhoneNumber" placeholder="请输入家长电话" />
+            </view>
+          </view>
+
+          <view class='flex-row dingzhi'>
+            <label class='form-item-label'>
+              <text class='star mr5 none'>*</text>家庭住址 |
+            </label>
+            <textarea wx:if="{{textareShow}}" placeholder-class='base-placeholder-sm special-size ' class='textarea mr60' type="text" auto-height='true' bindinput="_onChangeAddress" maxlength='40' placeholder="请输入家庭住址" value='{{address}}'/>
+          </view>
+
+          <view class='flex-row dingzhi'>
+            <label class='form-item-label'>
+              <text class='star mr5 none'>*</text>备注 |
+            </label>
+            <textarea wx:if="{{textareShow}}"  placeholder-class='base-placeholder-sm special-size ' class='textarea mr60' bindinput="_onChangeAttach" maxlength='40' placeholder="请输入备注" auto-height='true' value='{{attach}}' />
+          </view>
+
+        </view>
+        <view class='save-look-park-bottom mrt'>
+          <button disabled="{{isFormDisabled}}" class='sumit-btn-b' form-type="submit">预约看园
+          </button>
+        </view>
+      </form>
+      <image src="/imgs/flower.png" class='pa flower_img_left_bottom'></image>
+      <image src="/imgs/flower-1.png" class='pa flower_img_right_bottom'></image>
+    </view>
+    <view class='success-alert flex-col' wx:if='{{isSubmit}}'>
+      <image class='success-icon'src='/imgs/success-alert.png'></image>
+      <view class='flex-col success-text'>
+        <text class='font-c'>您已成功提交了宝贝信息！</text>
+        <text class='font28'>点击分享按钮，邀请宝贝的小伙伴一起来上幼儿园吧~</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="flex-col pf">
+    
+    <view  class='flex-1 justify-content b-font'>
+      <view class='flex-col' catchtap='_openGarden'>
+          <image src='/imgs/open-garden.png' class='icon-b'></image>
+      </view>
+    </view>
+</view>

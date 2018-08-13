@@ -1,0 +1,19 @@
+
+@import "./../../../common/style/card-info.wxss";
+@import "../../../common/component/countDown/countDown.wxss";
+
+.bind-user-layer{
+  padding: 30rpx 40rpx   
+}
+
+.sms-code-layer{
+  flex-direction: row;
+  align-items: center;
+
+}
+.card-info-body{
+  padding-top:0rpx;
+} 
+.example_png{
+  margin:68rpx auto;
+}

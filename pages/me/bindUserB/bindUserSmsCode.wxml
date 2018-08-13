@@ -1,0 +1,43 @@
+<view class='base-layer'>
+
+  <view class='base-card'>
+
+      <text class='card-info-header-title'>该操作需要进行手机短信验证</text>
+      <view class='card-info-header-desc'>+86 </view>
+   
+   <form  bindsubmit="_onFormSubmit"   bindreset="formReset">
+      <view class='card-info-body'> 
+      <view class='form-group'>
+                  <input  placeholder-class='base-placeholder'  class='base-input' type="number" bindinput="_onChangePhoneNum"  placeholder="输入手机号"/>              
+              </view>        
+            <view class='form-group flex-row sms-code-layer'>      
+                
+                 <input  placeholder-class='base-placeholder'  class='flex-1 base-input' type="number" bindinput="_onChangeSmsCode"  placeholder="输入验证码"/>       
+
+                  <!-- 倒计时 -->              
+                  <include src="../../../common/component/countDown/countDown.wxml"/>                 
+              </view>           
+      </view>
+      <view class='card-info-buttons'>
+        <button  
+          disabled="{{isFormDisabled}}"           
+            class='base-btn btn-primary'
+            form-type="submit"
+            >提交
+         </button>  
+      </view>
+    </form>
+  </view>
+
+  
+
+  <text class="card-info-label-text">北京蝉鸣信息科技有限公司</text>
+
+   
+   <image src='/imgs/example.png' class='example_png' catchtap='_jumpToShow'></image>
+
+</view>
+
+
+
+

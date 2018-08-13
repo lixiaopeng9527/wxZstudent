@@ -1,0 +1,135 @@
+/* pages/notify/visitorList/visitorList.wxss */
+
+.visitor-header{
+   flex-direction: row;
+   display: flex;
+   height : 167rpx;
+   align-items: center;
+   justify-content: center; 
+}
+
+
+
+.visitor-header-item{
+    flex  : 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.6;
+           
+}
+
+.v-line{
+  width: 3rpx;
+  height: 80rpx;
+  background: #fff;
+}
+
+.visitor-header-name{
+  font-size: 24rpx;
+  color: #fff;
+ 
+}
+
+.visitor-header-num{
+  color: #fff;
+
+  font-size: 64rpx;
+}
+
+.visitor-header-active{
+     opacity: 1;
+     font-weight: bold;
+}
+
+
+.lookPark-list{
+   margin-top: 15rpx;
+} 
+
+.lookPark-item{
+    margin-bottom: 40rpx;
+}
+
+.lookPark-item-time{
+  color: #999999;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+
+.lookPark-item-relation{
+  flex-direction: row;
+  display: flex;
+  align-items: center; 
+  margin-bottom: 20rpx;
+}
+
+
+.custom-icon-head{
+    color: #fff;
+    font-size: 45rpx;
+}
+
+.lookPark-item-icon-child-bg{
+        background: #7BBDFF;        
+}
+
+.lookPark-item-icon-parent-bg{
+        background: #FFA08A;
+}
+
+.lookPark-item-icon-wrap{
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+   margin-right: 20rpx;
+}
+
+.lookPark-item-name{
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.lookPark-item-desc{
+  font-size: 28rpx;
+  color: #666666;
+  font-weight: bold;
+  
+ 
+}
+
+ 
+ .lookPark-item-bottom{
+   color: #999999;
+   font-size: 28rpx;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+
+ .lookPark-item-concat{
+    color: #00A7F7;
+    font-weight: bold;
+ }
+
+
+.lookPark-more-wrap{
+   margin-bottom: 15rpx;
+}
+
+
+.lookPark-more-content{
+  font-size: 24rpx;
+  color: #999999;
+  display: flex;
+  flex-direction: column;   
+}
+
+
+

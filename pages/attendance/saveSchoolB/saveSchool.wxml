@@ -1,0 +1,95 @@
+<view  class='base-layer' style='padding-top:10rpx;'>
+
+  <form  bindsubmit="_onFormSubmit" >
+
+   <view class='save-school-title'>温馨提示：设置幼儿园名称和园所地址。</view>
+  
+  
+  <view class='base-card save-school-form'>
+
+      <!-- 模糊查询学校列表 -->
+      <view class='fuzzy-query' hidden="{{!isShowSearch}}">
+          <scroll-view scroll-y class='fuzzy-query-list'>            
+                  <view  data-index="{{index}}" catchtap="_onItemSelected" class="fuzzy-query-item" wx:key="index"  data-index="{{index}}"  wx:for="{{schoolList}}">
+                                          
+                        <text class='iconfont icon-house'></text>
+                        <view class="fuzzy-query-content">
+                            <text class='fuzzy-query-name'>{{item.schoolName}}</text>                                              <text class='fuzzy-query-desc'>{{item.address}}</text>
+                         </view>
+                    
+                  </view> 
+          </scroll-view>
+      </view>
+
+       <view class=''> 
+
+
+          <view class='save-school-query-layer'>
+              
+                <text class='save-school-query-complete'  catchtap='_onSearchComplete' wx:if='{{isShowComplete}}'>完成</text>
+
+                <text style='padding-bottom : 20rpx;' class='save-school-label'>园所名称:</text>
+                  <input  disabled='{{operatorType == "update"}}'  
+                  confirm-type ="done" 
+                  placeholder-class='base-placeholder-mini'  class='flex-1 save-school-name  base-input  base-input-mini save-school-form-first-input' type="text"  value="{{schoolName}}"  maxlength="40"  bindinput="_onChangeSchoolName"    focus placeholder="请输入园所名称" />    
+              </view>
+            </view>
+
+              <view class='save-school-address' catchtap='_forwardSelectAddress'>
+
+                <text class='save-school-label'>园所地址:</text>
+
+
+                  <view class='flex-1 text-ellipsis select-attendance'>
+                      {{currentLocation ? currentLocation.address : "请选择园所地址"}}     
+                  </view>        
+                  <text  class='iconfont icon-arrow-right custom-arrow-right'></text>
+              </view>
+
+
+
+
+           
+  
+  </view>
+    <!-- <view class='base-card mt30' wx:if="{{operatorType == 'update'}}">
+
+
+    <view class='save-look-park-form-select'>               
+                    <text class='save-look-park-understand'>有效打卡范围: {{rangeList[rangeIndex].name}}</text>
+                  
+                    <picker  range-key="name"  data-index="{{index}}" class='flex-1 text-right' value="{{index}}" range="{{rangeList}}"  mode="selector"  bindchange="_onSelectRange">
+                            <text class="save-look-park-select text-primary">修改</text>                                                                 
+                    </picker>                                 
+                            
+      </view>
+                     
+    </view> -->
+ 
+
+
+    <view class='save-school-bottom'>
+                 <button  class='base-btn  btn-seq btn-seq-primary btn-block'  disabled="{{isSubmit}}"  catchtap='_onSaveSchool'>
+       {{operatorType == 'update' ? "修改招生地址" : "开启知了智能名片"}}
+      </button>
+                <view class='company-title'>北京蝉鸣信息科技有限公司</view>
+          </view>
+
+  
+  
+  
+  
+  
+  
+  
+  </form>
+
+  
+  <image src='/imgs/example.png' class='example_png' catchtap='_jumpToShow'></image>
+
+</view>
+
+
+
+
+

@@ -1,0 +1,115 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wx87ad3e5170438911",
+	"projectname": "zl-wxZstudent",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 7,
+			"list": [
+				{
+					"id": 1,
+					"name": "我的界面",
+					"pathName": "pages/me/userInfo/userInfo",
+					"query": "scene=%3ftype%3dfx%26sId%3d100032"
+				},
+				{
+					"id": 1,
+					"name": "验证码B",
+					"pathName": "pages/me/bindUserB/bindUserSmsCode",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "绑定学校B",
+					"pathName": "pages/attendance/saveSchoolB/saveSchool",
+					"query": "type=update"
+				},
+				{
+					"id": -1,
+					"name": "选择学校",
+					"pathName": "pages/attendance/selectAddress/selectAddress",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "招生编辑",
+					"pathName": "pages/me/admissions/admissions",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "sId=6101130368&type=fxzs&userId=286700"
+				},
+				{
+					"id": 9,
+					"name": "招生海报页",
+					"pathName": "pages/me/admissions/showAdmissions",
+					"query": "sId=6101130368&type=fxzs&userId=286700"
+				},
+				{
+					"id": 7,
+					"name": "邀请招生",
+					"pathName": "pages/index/index",
+					"query": "sId=4307030006&type=yqzs"
+				},
+				{
+					"id": 11,
+					"name": "招生统计",
+					"pathName": "pages/index/index",
+					"query": "sId=1101010020&type=zstj"
+				},
+				{
+					"id": -1,
+					"name": "123",
+					"pathName": "pages/me/admissions/showAdmissions",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "宣传页",
+					"pathName": "pages/me/admissions/publicityPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "验证码A",
+					"pathName": "pages/me/bindUserA/bindUserSmsCode",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "绑定学校A",
+					"pathName": "pages/attendance/saveSchoolA/saveSchool",
+					"query": "type=update"
+				}
+			]
+		}
+	}
+}

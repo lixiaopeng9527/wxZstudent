@@ -1,0 +1,56 @@
+<!--pages/attendance/selectAddress/selectAddress.wxml-->
+<view class='base-select-address'>
+
+  <view class='address-select'>  
+  
+       <!--城市列表 -->
+        <view class='city-address' catchtap='_onShowCityList'  hidden="{{isShowSelect}}">    
+             <text class=''>{{selectedCity.fullname}}   </text>                                 
+             <text class='iconfont ib icon-arrow-down-fill'style='color : #989898;'></text>            </view>        
+        <view  class='fx-1'  hidden="{{!isShowSelect}}">
+               <input  bindinput="_onSearchAddress"  placeholder-class='base-placeholder-dd'  class='base-input dd-input  select-city-input' type="text"    placeholder="城市中文名称"  value="{{citySearchVal}}"/>           
+        </view>
+        <view class='fx-1  input-school-address'>
+               <input  placeholder-class='base-placeholder-dd'  class='base-input dd-input' type="text"   bindfocus="_onFocusSchoolAddress"  bindinput="_onSearchSchoolAddress"   placeholder="输入园所地址" />    
+        </view>
+  </view>
+
+  <view class="fx-1 address-inner">
+
+   <view wx:if="{{!isFirst && addressList.length <=0 &&  !isShowSelect}}" class="not-find">
+        未找到当前地址,请检查输入内容是否正确!
+  </view>
+
+  <!-- 底下渲染列表 -->
+    <scroll-view scroll-y  style="height : {{scrollHeihgt}}">      
+        <!--城市列表 -->
+        <view class='city-letter-list' wx:if="{{isShowSelect}}">
+            <view   class='city-letter-item' wx:for-index="letterIndex" wx:for-item="letterItem" wx:for="{{groupCityList}}" wx:key="initials">            
+              <view class='city-letter'>{{letterItem.upperInitials}}</view>
+              <view class='city-list'>
+                    <view   hover-class="base-hover-item" data-letter-index = "{{letterIndex}}" data-index="{{index}}" catchtap='_onSelectedCityItem' class='city-item'  wx:for-item="cityItem"   wx:key="index" wx:for="{{letterItem.data}}">
+                        <text>{{cityItem.fullname}}</text>
+                    </view>
+              </view>
+            </view>
+        </view>
+
+        <!-- 搜索地址 -->
+        <view class='address-list' hidden="{{isShowSelect}}">
+            <view hover-class="base-hover-item"  data-index="{{index}}" catchtap="_onItemSelected" class="address-item" wx:key="index"  wx:for="{{addressList}}">
+                  <text class='iconfont icon-location'></text>
+                  <view class='address-content'>                       
+                        <view class="address-title text-ellipsis">
+                            {{item.title}}                            
+                        </view>                        
+                        <view class="address-desc text-ellipsis">
+                          {{item.address}}               
+                        </view>                                         
+                  </view>
+            </view>
+        </view>
+    
+    </scroll-view>
+    </view>
+</view>
+

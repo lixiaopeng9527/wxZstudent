@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/notify/statistics/statistics",
+    "pages/me/userInfo/userInfo",
+    "pages/me/bindUserA/bindUserSmsCode",
+    "pages/me/bindUserB/bindUserSmsCode",
+    "pages/me/admissions/admissions",
+    "pages/notify/lookParkList/lookParkList",
+    "pages/me/admissions/showAdmissions",
+    "pages/qrcode/shareZs/shareZs",
+    "pages/attendance/saveSchoolA/saveSchool",
+    "pages/attendance/saveSchoolB/saveSchool",
+    "pages/attendance/selectAddress/selectAddress",
+    "pages/me/admissions/publicityPage"
+  ],
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#00A7F7",
+    "color": "#666666",
+    "list": [
+      {
+        "pagePath": "pages/me/admissions/admissions",
+        "text": "招生",
+        "iconPath": "imgs/tabbar-zhaosheng.png",
+        "selectedIconPath": "imgs/tabbar-zhaosheng-active.png"
+      },
+      {
+        "pagePath": "pages/notify/statistics/statistics",
+        "text": "统计",
+        "iconPath": "imgs/tabbar-tongji.png",
+        "selectedIconPath": "imgs/tabbar-tongji-active.png"
+      },
+      {
+        "pagePath": "pages/me/userInfo/userInfo",
+        "text": "我的",
+        "iconPath": "imgs/tabbar-me.png",
+        "selectedIconPath": "imgs/tabbar-me-active.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#00A7F7",
+    "navigationBarBackgroundColor": "#00A7F7",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "#000000"
+  }
+}

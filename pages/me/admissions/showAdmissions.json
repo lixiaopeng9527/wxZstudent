@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "action-model": "/common/component/easyModal/actionSheet/actionSheet"
+  }
+}

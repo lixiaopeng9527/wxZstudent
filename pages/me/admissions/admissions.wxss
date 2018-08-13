@@ -1,0 +1,315 @@
+page{
+  color:#888;
+}
+textarea{
+  width:100%;
+}
+.bg-pic{
+  width:100%;
+  height:360rpx;
+  border-radius:12rpx;
+
+}
+.delete_pic{
+  width:40rpx;
+  height:40rpx;
+  position:absolute;
+  top:5rpx;
+  right:5rpx;
+}
+.del-con{
+  position:relative;
+}
+ .itemImg{
+  width:160rpx;
+  height:160rpx;
+  border-radius:12rpx;
+} 
+.flex-item-1{
+  width:33.33%;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}
+input{
+  text-align: center;
+}
+.base-placeholder{
+  text-align: center;
+  font-size:28rpx;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+.introduce{
+  font-size: 28rpx;
+  color: #00A7F7;
+  margin-bottom: 48rpx;
+}
+.introduce-icon{
+  width: 44rpx;
+  height: 44rpx;
+  margin: 48rpx 0 22rpx 0;
+}
+.radio{
+  margin-bottom: 48rpx;
+  flex: 1;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.box {
+  text-align: center;
+  display: block;
+  width: 159rpx;
+  height: 68rpx;
+  border-radius: 5rpx;
+  background-color: #F8F8F8;
+}
+.text-content{
+  font-size: 26rpx;
+  color: #888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex:1;
+}
+.test01{
+  font-size: 28rpx;
+}
+.mr32{
+  margin: 0 16rpx;
+}
+.pd48{
+  padding: 0rpx 32rpx 48rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.flex-row-wrap{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.flex-row3{
+  flex:0 0 33.333%;
+  margin-bottom:32rpx;
+  justify-content:center;
+  display:flex;
+  padding:0 16rpx;
+  box-sizing: border-box;
+}
+.inner{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  background-color: #F5F5F5; 
+  padding:14rpx 0;
+  text-align: center;
+  border-radius: 8rpx;
+}
+.active{
+  background:#00A7F7;
+  color:#00A7F7;
+}
+.dotted{
+  border:2rpx dashed #999;
+  background:#fff;
+}
+.pd20{
+  padding:20rpx;
+  border:1rpx solid #e8e8e8;
+}
+.bg-header{
+  background:#f5f5f5;
+}
+.self_color{
+  color:#999;
+}
+.pd15{
+  padding:11.9rpx;
+  border:1rpx solid #e8e8e8;
+}
+.algin-center{
+  align-items: center;
+}
+.justify-center{
+  justify-content: center;
+}
+.flex-1{
+  flex:1;
+  padding: 16rpx;
+  background-color: #F5F5F5;
+  border-radius: 8rpx;
+}
+.active{
+  background-color: #DCF4FF;
+}
+.active .text-content{
+  color:#00A7F7;
+}
+.base-container{
+  background-color: #ffffff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+.container-pic{
+  margin: 20rpx 40rpx 20rpx 40rpx
+}
+.show-pic {
+  width: 670rpx;
+  height: 378rpx;
+}
+
+.admissions-pic{
+  width: 100rpx;
+  height: 100rpx;
+}
+.admissions-text{
+  margin: 64rpx 0 72rpx 0;
+  font-size: 22rpx;
+  color: #ffffff;
+  opacity: .7;
+}
+.child{
+  width: 160rpx;
+  height: 160rpx;
+}
+.bt{
+  border-top: 2rpx solid #e8e8e8;
+  margin:  48rpx 24rpx 44rpx 24rpx;
+}
+.mt44{
+  margin-top:44rpx;
+}
+.m48{
+  margin:0 48rpx 48rpx;
+}
+.diet_pd{
+  padding:0rpx 32rpx;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+.mr46{
+  margin: 44rpx 0 44rpx 0;
+}
+
+.item-message{
+  padding: 0 42rpx 0rpx 42rpx;
+}
+.text-bk{
+  background-color: #F5F5F5;
+  padding:30rpx;
+  font-size:28rpx;
+  box-sizing: border-box;
+}
+.img_width{
+  width:100%;
+}
+.star{
+  color: #F76B00;
+  position: relative;
+  top: 3rpx;
+}
+.pd{
+  border: 1rpx solid #D8D8D8;
+  padding: 14rpx 20rpx 14rpx 20rpx;
+  margin-right:30rpx;
+}
+.pdr{
+  padding-right: 14rpx;
+}
+ 
+.ml5{
+  margin-left: 5rpx;
+}
+
+.mr5{
+  margin-right: 5rpx;
+}
+
+.form-item-label{
+  font-size: 28rpx;
+  color: #666666;
+  margin-right: 15rpx;  
+}
+.placeholder_color{
+  color:#999;
+}
+.form-input-item{
+    font-size: 28rpx;
+    color:#cacaca;
+}
+.success-button{
+  background-color: #FFCC22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 0 30rpx 0;
+  position:fixed; 
+  width: 100%;
+  bottom:0rpx; 
+  left: 0rpx;
+  z-index:9999;
+}
+.btn-bdr{
+  border-radius:0;
+}
+.mr17 {
+  margin: 17rpx 20rpx 17rpx 20rpx;
+}
+
+.mpb{
+  margin-bottom: 18rpx;
+}
+.form-checkbox{
+  padding: 0 42rpx;
+  flex-wrap: wrap;
+}
+.margin_no{
+  margin-bottom:0rpx;
+}
+.form-checkbox-item{
+  background-color: #F5F5F5;
+  width: 33.3333333%;
+  text-align: center;
+}
+.form-input-style{
+  border-bottom: 1rpx solid #D8D8D8;
+  padding: 18rpx 0rpx;
+  margin:0 30rpx;
+  align-items: center;
+}
+.class_b{
+  padding:0 24rpx;
+}
+.flex-row-1{
+  display:flex;
+  flex:1;
+}
+.b_input{
+  text-align: left;
+  font-size:28rpx;
+  width:100%;
+}
+.pd40{
+  padding:40rpx;
+}
+.form-input-item-time{
+  padding:24rpx 0rpx;
+}
+.mb48{
+  margin-bottom:48rpx;
+}
+.btn-seq-primary{
+  background: #ffcc22;
+  color:#666;
+}
+.nbb{
+  border-bottom:0rpx;
+}
+.nbr{
+  border-right: 0rpx;
+}

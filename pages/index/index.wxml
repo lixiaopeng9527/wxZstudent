@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class='index-center-layer'>
+  <!-- <image mode='widthFix' src="/imgs/cicada-splash.png" class='index-bg'  /> -->
+  <image mode='aspectFill' src="/imgs/recruitStudents.jpg" class='index-bg'  />
+  <!-- <image bindtap='_onRetryLogo' lazy-load="true" src="/imgs/cicada-logo-splash.png"  class='cicada-logo'></image>   -->
+</view>
+
+
+<!-- <view wx:if="{{isRetry}}" class='index-retry'>点击知了logo重试</view> -->
+ <!-- <text class='index-company'>北京蝉鸣信息科技有限公司</text> -->
+
